@@ -5,7 +5,7 @@
   - [wanted 채용공고 링크](https://www.wanted.co.kr/company/4865)
 
 ## Project Link
-📎 배포주소 |
+📎 배포주소 |http://ec2-3-37-216-214.ap-northeast-2.compute.amazonaws.com:8000
 
 ## 💁‍♀️ Members
 |이름   |github                   |담당 기능|
