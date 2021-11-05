@@ -1,8 +1,11 @@
-# 프레시코드
+# [Assignment 2] 프레시코드
 - 과제 출제 기업 정보
   - 기업명 : 프레시코드
   - [프레시코드](https://freshcode.com/)
   - [wanted 채용공고 링크](https://www.wanted.co.kr/company/4865)
+
+## Project Link
+📎 배포주소 | 
 
 ## 💁‍♀️ Members
 |이름   |github                   |담당 기능|
@@ -36,20 +39,7 @@
     - Swagger를 통한 API 테스트할때 필요한 상세 방법
     - 해당 과제를 진행하면서 회고 내용 블로그 포스팅
 
-
-## 사용 기술 및 tools
-> - Back-End :  <img src="https://img.shields.io/badge/Python 3.8-3776AB?style=for-the-badge&logo=Python&logoColor=white"/>&nbsp;<img src="https://img.shields.io/badge/Django 3.2-092E20?style=for-the-badge&logo=Django&logoColor=white"/>&nbsp;<img src="https://img.shields.io/badge/mysql 8.0-1b9e41?style=for-the-badge&logo=Mysql&logoColor=white"/>
-> - Deploy : <img src="https://img.shields.io/badge/AWS_EC2-232F3E?style=for-the-badge&logo=Amazon&logoColor=white"/>&nbsp;<img src="https://img.shields.io/badge/Docker-0052CC?style=for-the-badge&logo=Docker&logoColor=white"/>
-> - ETC :  <img src="https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=Git&logoColor=white"/>&nbsp;<img src="https://img.shields.io/badge/Github-181717?style=for-the-badge&logo=Github&logoColor=white"/>&nbsp;<img src="https://img.shields.io/badge/Postman-FF6C37?style=for-the-badge&logo=Postman&logoColor=white"/>
-
-## 🏄‍♀️ 모델링
-![5 drawio](https://user-images.githubusercontent.com/8315252/139969615-38f01f08-cc1c-427e-87a6-09671525525b.png)
-
-## API
-[링크-postman document](https://documenter.getpostman.com/view/16042359/UVBzmpLX)
-
-## 구현 기능
-
+### [기능 개발]
 ### 로그인 기능
 - 사용자 인증을 통해 상품 관리를 할 수 있어야 합니다.
     - 구현
@@ -121,18 +111,42 @@
 
         ```
 
-## API TEST 방법
-...
+## 🛠 사용 기술 및 tools
+> - Back-End :  <img src="https://img.shields.io/badge/Python 3.8-3776AB?style=for-the-badge&logo=Python&logoColor=white"/>&nbsp;<img src="https://img.shields.io/badge/Django 3.2-092E20?style=for-the-badge&logo=Django&logoColor=white"/>&nbsp;<img src="https://img.shields.io/badge/PostgreSQL-4169E1?style=for-the-badge&logo=PostgreSQL&logoColor=white"/>
+> - Deploy : <img src="https://img.shields.io/badge/AWS_EC2-232F3E?style=for-the-badge&logo=Amazon&logoColor=white"/>&nbsp;<img src="https://img.shields.io/badge/Docker-0052CC?style=for-the-badge&logo=Docker&logoColor=white"/>
+> - ETC :  <img src="https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=Git&logoColor=white"/>&nbsp;<img src="https://img.shields.io/badge/Github-181717?style=for-the-badge&logo=Github&logoColor=white"/>&nbsp;<img src="https://img.shields.io/badge/Postman-FF6C37?style=for-the-badge&logo=Postman&logoColor=white"/>
 
-## 설치 및 실행 방법
-###  Local 개발 및 테스트용
-...
+## 🖇 ERD
+![image (3)](https://user-images.githubusercontent.com/73830753/140519582-e53e8ec6-1074-46c1-8032-35551fdf7f01.png)
 
-###  배포용
-...
+## ✨ 구현 방법과 이유
+- **users**
+  - admin role과 user role의 차별화를 위해 user 테이블에 role 필드를 만들었습니다.
+    - UserRole class를 만들어 admin과 user 중 choice 할 수 있게 만들었습니다.
+    - default 값은 user로 주었습니다.
+  - IsAdmin permission을 생성하여 user role이 admin일 경우만 user list를 조회할 수 있게 만들었습니다.
+    - 로그인시 발급받은 token을 조회하여 permission을 구분 할 수 있게 하였습니다.
 
-## 폴더 구조
+## 📎 Postman Document
+[Postman Document](https://documenter.getpostman.com/view/16042359/UVBzmpLX)
 
+
+## 🔥 프로젝트 실행 방법
+- 가상환경 실행
+  - 가상환경 생성(conda사용을 가정)
+  - conda create -n (가상환경 이름)
+  - conda activate (생성한 가상환경 이름) 가상환경 실행
+- 프로젝트 클론
+  - git clone https://github.com/wanted-team6/Freshcode.git . (현재 경로에 repository 복사)
+- 프로젝트에 필요한 package 설치
+  - pip install -r requirements.txt를 입력하여 package install 진행
+- 서버 실행
+  - python manage.py runserver
+- endpoint 호출 및 실행
+  - [Postman Document](https://documenter.getpostman.com/view/16042359/UVBzmpLX) 접속
+  - api 및 endpoint 확인
+  - 우측 상단의 Run in Postman 클릭
+  - 원하는 자신의 workspace을 골라 api test 진행
 
 # Reference
-이 프로젝트는 원티드x위코드 백엔드 프리온보딩 과제 일환으로 **에서 출제한 과제를 기반으로 만들었습니다.
+이 프로젝트는 원티드x위코드 백엔드 프리온보딩 과제 일환으로 *프레시코드*에서 출제한 과제를 기반으로 만들었습니다.
