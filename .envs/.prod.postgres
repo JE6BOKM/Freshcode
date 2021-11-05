@@ -1,0 +1,10 @@
+# Postgres 환경변수 설정 가능
+# ------------------------------------------------------------------------------
+POSTGRES_DB=freshcodedb
+POSTGRES_USER=hello
+POSTGRES_PASSWORD=76c63873-0cdd-44d0-b740-93fa806cfc96
+
+# Postgres 환경변수 설정 불가
+# ------------------------------------------------------------------------------
+POSTGRES_HOST=postgres
+POSTGRES_PORT=5432
