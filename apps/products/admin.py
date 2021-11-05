@@ -20,6 +20,8 @@ class ItemAdmin(admin.ModelAdmin):
 
     """Item Admin Definition"""
 
+    list_display = ("id", "name", "menuId", "size", "price")
+
 
 @admin.register(Category)
 class CategoryAdmin(admin.ModelAdmin):
