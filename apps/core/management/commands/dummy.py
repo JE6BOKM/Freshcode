@@ -3,7 +3,7 @@ from django.core.management.base import BaseCommand
 
 from django_extensions.management.shells import import_objects
 
-from test.factories import UserFactory
+from test.factories import CateGoryFactory, UserFactory
 
 User = get_user_model()
 
@@ -35,5 +35,10 @@ class Command(BaseCommand):
 
         # Make Dummy users(default 10)
         UserFactory.create_batch(size=users_cnt)
+
+        # Make Dummy menus
+
+        CateGoryFactory(name="salad")
+        CateGoryFactory(name="drinks")
 
         self.stdout.write("Finish load dummy")
