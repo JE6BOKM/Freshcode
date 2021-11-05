@@ -2,9 +2,9 @@ FROM python:3.9 as requirements-stage
 
 WORKDIR /tmp
 
-RUN pip install poetry
-
 RUN pip install --upgrade pip
+
+RUN pip install poetry
 
 COPY ./pyproject.toml ./poetry.lock* /tmp/
 
