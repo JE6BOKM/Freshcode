@@ -1,7 +1,6 @@
 from rest_framework import permissions
 from rest_framework.viewsets import ModelViewSet
 
-
 from apps.products.models import Menu
 from apps.products.serializers import MenuSeiralier
 from apps.users.permissions import IsAdmin

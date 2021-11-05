@@ -1,5 +1,6 @@
 from django.contrib import admin
-from apps.products.models import Category, Menu, Item, Tag
+
+from apps.products.models import Category, Item, Menu, Tag
 
 
 @admin.register(Menu)
