@@ -1,6 +1,11 @@
 from rest_framework.routers import DefaultRouter
 
-from apps.products.views import CategoryCRUDViewSet, MenuCRUDViewSet, TagCRUDViewSet, ItemCRUDViewSet
+from apps.products.views import (
+    CategoryCRUDViewSet,
+    ItemCRUDViewSet,
+    MenuCRUDViewSet,
+    TagCRUDViewSet,
+)
 
 app_name = "products"
 

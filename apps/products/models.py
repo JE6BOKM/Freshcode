@@ -1,14 +1,16 @@
 from django.db import models
 from django.db.models.deletion import CASCADE
 
+
 class Category(models.Model):
     name = models.CharField(max_length=16)
-    
+
     def __str__(self):
         return self.name
 
     class Meta:
         db_table = "categories"
+
 
 class Menu(models.Model):
     BADGE_CHOICES = [("NEW", "NEW"), ("BEST", "BEST")]
@@ -16,13 +18,16 @@ class Menu(models.Model):
     description = models.CharField(max_length=512)
     isSold = models.BooleanField(default=False)
     badge = models.CharField(max_length=5, default="NEW", choices=BADGE_CHOICES)
-    categoryId = models.ForeignKey("Category", related_name="menus", on_delete=models.CASCADE)
-    
+    categoryId = models.ForeignKey(
+        "Category", related_name="menus", on_delete=models.CASCADE
+    )
+
     def __str__(self):
         return self.name
 
     class Meta:
         db_table = "menus"
+
 
 class Tag(models.Model):
     type = models.CharField(max_length=32)
@@ -34,6 +39,7 @@ class Tag(models.Model):
 
     class Meta:
         db_table = "tags"
+
 
 class Item(models.Model):
     SIZE_CHOICES = [("M", "M"), ("L", "L")]
