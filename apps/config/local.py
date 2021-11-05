@@ -16,6 +16,11 @@ class Local(Common):
         "django_extensions",
     )
 
+    REST_FRAMEWORK = Common.REST_FRAMEWORK
+    REST_FRAMEWORK["DEFAULT_AUTHENTICATION_CLASSES"] = [  # noqa
+        "apps.core.authentications.AutoLoginAuthentication",
+    ]
+
     # Mail
     EMAIL_HOST = "localhost"
     EMAIL_PORT = 1025

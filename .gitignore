@@ -265,6 +265,8 @@ celerybeat.pid
 *.sage.py
 
 # Environments
+.envs/*
+!.envs/.local.postgres
 .env
 .envrc
 .venv
