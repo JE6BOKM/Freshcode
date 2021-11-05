@@ -6,6 +6,7 @@ from django.views.generic.base import RedirectView
 
 api_v1_urls = [
     path("", include("apps.users.urls")),
+    path("products/", include("apps.products.urls")),
     path("accounts/", include("dj_rest_auth.urls")),
     path("accounts/", include("dj_rest_auth.registration.urls")),
 ]

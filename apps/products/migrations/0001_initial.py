@@ -28,9 +28,9 @@ class Migration(migrations.Migration):
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('name', models.CharField(max_length=32)),
                 ('description', models.CharField(max_length=512)),
-                ('isSord', models.BooleanField(default=False)),
-                ('badge', models.CharField(choices=[('NEW', 'NEW'), ('BEST', 'BEST')], max_length=5)),
-                ('category', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='products.category')),
+                ('isSold', models.BooleanField(default=False)),
+                ('badge', models.CharField(choices=[('NEW', 'NEW'), ('BEST', 'BEST')], default='NEW', max_length=5)),
+                ('category', models.ForeignKey(blank=True, on_delete=django.db.models.deletion.CASCADE, related_name='menus', to='products.category')),
             ],
             options={
                 'db_table': 'menus',
@@ -42,7 +42,7 @@ class Migration(migrations.Migration):
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('type', models.CharField(max_length=32)),
                 ('name', models.CharField(max_length=32)),
-                ('menu', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='products.menu')),
+                ('menu', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='tag', to='products.menu')),
             ],
             options={
                 'db_table': 'tags',
@@ -56,7 +56,7 @@ class Migration(migrations.Migration):
                 ('size', models.CharField(choices=[('M', 'M'), ('L', 'L')], max_length=5)),
                 ('price', models.IntegerField()),
                 ('isSold', models.BooleanField(default=False)),
-                ('menu', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='products.menu')),
+                ('menu', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='item', to='products.menu')),
             ],
             options={
                 'db_table': 'items',
