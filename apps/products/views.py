@@ -1,6 +1,7 @@
 from rest_framework import viewsets
-from rest_framework.permissions import AllowAny, IsAdmin
+from rest_framework.permissions import AllowAny
 
+from apps.users.permissions import IsAdmin
 from apps.products.models import Category, Item, Menu, Tag
 from apps.products.serializers import (
     CategorySerializer,
@@ -14,10 +15,15 @@ class CategoryCRUDViewSet(viewsets.ModelViewSet):
     queryset = Category.objects.all()
     serializer_class = CategorySerializer
 
+    # def get_permissions(self):
+    #     if self.action in ["list", "retrieve"]:
+    #         self.permission_classes = [AllowAny]
+    #     else:
+    #         self.permission_classes = [IsAdmin]
+    #     return super().get_permissions()
+
     def get_permissions(self):
-        if self.action in ["list", "retrieve"]:
-            self.permission_classes = [AllowAny]
-        else:
+        if self.action in ["list"]:
             self.permission_classes = [IsAdmin]
         return super().get_permissions()
 
