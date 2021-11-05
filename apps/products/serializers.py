@@ -21,4 +21,12 @@ class MenuSeiralier(serializers.ModelSerializer):
 
     class Meta:
         model = Menu
-        fields = ("name", "description", "isSold", "badge", "category", "items", "tags")
+        fields = (
+            "name",
+            "description",
+            "isSold",
+            "badge",
+            "category",
+            "items",
+            "tags",
+        )
