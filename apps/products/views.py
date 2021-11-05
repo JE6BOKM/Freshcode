@@ -1,7 +1,6 @@
 from rest_framework import viewsets
 from rest_framework.permissions import AllowAny
 
-from apps.users.permissions import IsAdmin
 from apps.products.models import Category, Item, Menu, Tag
 from apps.products.serializers import (
     CategorySerializer,
@@ -9,6 +8,7 @@ from apps.products.serializers import (
     MenuSerializer,
     TagSerializer,
 )
+from apps.users.permissions import IsAdmin
 
 
 class CategoryCRUDViewSet(viewsets.ModelViewSet):
