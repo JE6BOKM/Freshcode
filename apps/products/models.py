@@ -1,5 +1,4 @@
 from django.db import models
-from django.db.models.deletion import CASCADE
 
 
 class Category(models.Model):
@@ -35,7 +34,7 @@ class Menu(models.Model):
 class Tag(models.Model):
     type = models.CharField(max_length=32)
     name = models.CharField(max_length=32)
-    menu = models.ForeignKey(
+    menuId = models.ForeignKey(
         Menu,
         related_name="tags",
         on_delete=models.CASCADE,
@@ -50,7 +49,7 @@ class Tag(models.Model):
 
 class Item(models.Model):
     SIZE_CHOICES = [("M", "M"), ("L", "L")]
-    menu = models.ForeignKey(
+    menuId = models.ForeignKey(
         Menu,
         related_name="items",
         on_delete=models.CASCADE,
