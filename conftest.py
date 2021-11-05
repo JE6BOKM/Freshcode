@@ -20,6 +20,8 @@ def user() -> User:
         username="test-user",
         email="test-user@test.com",
         password="1234",
+        role="Admin",
+        is_staff=True,
     )
     return user
 

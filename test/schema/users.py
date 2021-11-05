@@ -4,7 +4,7 @@ from schema import Schema
 
 @pytest.fixture
 def user_detail_data():
-    return {"id": str, "username": str, "email": str}
+    return {"id": str, "username": str, "email": str, "role": str}
 
 
 @pytest.fixture
