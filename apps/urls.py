@@ -4,6 +4,7 @@ from django.contrib import admin
 from django.urls import include, path, re_path, reverse_lazy
 from django.views.generic.base import RedirectView
 
+
 api_v1_urls = [
     path("", include("apps.users.urls")),
     path("accounts/", include("dj_rest_auth.urls")),

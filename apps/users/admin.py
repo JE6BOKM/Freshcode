@@ -6,4 +6,18 @@ from .models import User
 
 @admin.register(User)
 class UserAdmin(UserAdmin):
-    pass
+
+    fieldsets = UserAdmin.fieldsets + (
+        (
+            None,
+            {
+                "fields": ("role",),
+            },
+        ),
+    )
+
+    list_display = (
+        "username",
+        "email",
+        "role",
+    )

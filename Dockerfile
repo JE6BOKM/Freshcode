@@ -4,6 +4,8 @@ WORKDIR /tmp
 
 RUN pip install poetry
 
+RUN pip install --upgrade pip
+
 COPY ./pyproject.toml ./poetry.lock* /tmp/
 
 RUN poetry export -f requirements.txt --output requirements.txt --without-hashes --dev

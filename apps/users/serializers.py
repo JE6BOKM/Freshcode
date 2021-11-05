@@ -8,7 +8,7 @@ from .models import User
 class UserSerializer(DynamicFieldsSerializerMixin, serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ("id", "username", "email")
+        fields = ("id", "username", "email", "role")
         read_only_fields = ("username",)
 
 
@@ -25,8 +25,6 @@ class CreateUserSerializer(serializers.ModelSerializer):
             "id",
             "username",
             "password",
-            "first_name",
-            "last_name",
             "email",
         )
         extra_kwargs = {"password": {"write_only": True}}
