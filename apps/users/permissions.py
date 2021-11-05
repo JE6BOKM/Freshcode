@@ -1,5 +1,7 @@
 from rest_framework import permissions
 
+from .models import Role
+
 
 class IsUserOrReadOnly(permissions.BasePermission):
     """
@@ -12,3 +14,19 @@ class IsUserOrReadOnly(permissions.BasePermission):
             return True
 
         return obj == request.user
+
+
+class IsAdmin(permissions.BasePermission):
+    """
+    Only allowed to admin
+    """
+
+    message = "ADMIN ONLY ALLOWED"
+
+    def has_permission(self, request, view):
+        if request.user.is_authenticated:
+            if request.user.role == Role.ADMIN:
+                return True
+            return False
+        else:
+            return False

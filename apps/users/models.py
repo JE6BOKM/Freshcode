@@ -9,8 +9,16 @@ from django.dispatch import receiver
 from rest_framework.authtoken.models import Token
 
 
+class UserRole(models.TextChoices):
+    ADMIN = "Admin"
+    USER = "User"
+
+
 class User(AbstractUser):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    role = models.CharField(
+        choices=UserRole.choices, default=UserRole.USER, max_length=16
+    )
 
     def __str__(self):
         return self.username
