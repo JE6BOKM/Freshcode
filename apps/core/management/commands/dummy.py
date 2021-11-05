@@ -1,42 +1,27 @@
-import random
-from math import ceil
-
 from django.contrib.auth import get_user_model
 from django.core.management.base import BaseCommand
 
 from django_extensions.management.shells import import_objects
 
-from test.factories import PostFactory, UserFactory
+from test.factories import UserFactory
 
 User = get_user_model()
-
-
-def divide(lst, min_size, split_size):
-    it = iter(lst)
-    from itertools import islice
-
-    size = len(lst)
-    for i in range(split_size - 1, 0, -1):
-        s = random.randint(min_size, size - min_size * i)
-        yield list(islice(it, 0, s))
-        size -= s
-    yield list(it)
 
 
 class Command(BaseCommand):
     def add_arguments(self, parser):
         # Named (optional) arguments
         parser.add_argument(
-            "-c",
+            "-u",
             type=str,
-            help="Add number of posts",
+            help="Add number of users",
         )
 
     def handle(self, *args, **kwargs):
-        if not kwargs.get("p"):
-            posts_cnt = 1000
+        if not kwargs.get("u"):
+            users_cnt = 10
         else:
-            posts_cnt = int(kwargs.get("p"))
+            users_cnt = int(kwargs.get("u"))
 
         self.stdout.write("Start loading dummy")
 
@@ -48,9 +33,7 @@ class Command(BaseCommand):
         imported_objects = import_objects(options, style)
         globals().update(imported_objects)
 
-        users = UserFactory.create_batch(size=ceil(posts_cnt / 10))
-
-        for idx, val in enumerate(divide(range(posts_cnt), 10, len(users))):
-            PostFactory.create_batch(author=users[idx], size=len(val))
+        # Make Dummy users(default 10)
+        UserFactory.create_batch(size=users_cnt)
 
         self.stdout.write("Finish load dummy")
