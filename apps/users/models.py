@@ -16,7 +16,9 @@ class UserRole(models.TextChoices):
 
 class User(AbstractUser):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    role = models.CharField(choices=UserRole.choices, default=UserRole.USER, max_length=16)
+    role = models.CharField(
+        choices=UserRole.choices, default=UserRole.USER, max_length=16
+        )
 
     def __str__(self):
         return self.username
