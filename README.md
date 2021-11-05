@@ -127,6 +127,10 @@
   - IsAdmin permission을 생성하여 user role이 admin일 경우만 user list를 조회할 수 있게 만들었습니다.
     - 로그인시 발급받은 token을 조회하여 permission을 구분 할 수 있게 하였습니다.
 
+- **products**
+  - ModelViewSet으로 Create, Read, Update, Delete를 사용할 수 있게 만들었습니다.
+  - permission을 생성하여 admin은 CRUD, user는 Read만 사용할 수 있게 만들었습니다.
+
 ## 📎 Postman Document
 [Postman Document](https://documenter.getpostman.com/view/16042359/UVBzmpLX)
 
