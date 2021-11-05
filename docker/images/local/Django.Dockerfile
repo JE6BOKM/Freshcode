@@ -23,7 +23,11 @@ RUN pip install --no-cache-dir --upgrade -r /requirements.txt
 COPY . /code
 WORKDIR /code
 
+COPY --chown=django:django ./docker/images/local/start /start
+RUN chmod +x /start
+
+
 EXPOSE 8000
 
 # Run the production server
-CMD newrelic-admin run-program gunicorn --bind 0.0.0.0:$PORT --access-logfile - config.wsgi:application
+# CMD newrelic-admin run-program gunicorn --bind 0.0.0.0:$PORT --access-logfile - config.wsgi:application

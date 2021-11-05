@@ -3,6 +3,7 @@ from django.core.management.base import BaseCommand
 
 from django_extensions.management.shells import import_objects
 
+from apps.users.models import UserRole
 from test.factories import UserFactory
 
 User = get_user_model()
@@ -33,6 +34,14 @@ class Command(BaseCommand):
         imported_objects = import_objects(options, style)
         globals().update(imported_objects)
 
+        # Local admin account
+        UserFactory(
+            username="admin",
+            email="admin@test.com",
+            password="1234",
+            role=UserRole.ADMIN,
+            is_staff=True,
+        )
         # Make Dummy users(default 10)
         UserFactory.create_batch(size=users_cnt)
 
