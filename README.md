@@ -132,25 +132,92 @@
   - permission을 생성하여 admin은 CRUD, user는 Read만 사용할 수 있게 만들었습니다.
 
 ## 📎 Postman Document
-[Postman Document](https://documenter.getpostman.com/view/16042359/UVBzmpLX)
+[Postman Document](https://documenter.getpostman.com/view/13670333/UVC2J9m2)
 
 
 ## 🔥 프로젝트 실행 방법
-- 가상환경 실행
-  - 가상환경 생성(conda사용을 가정)
-  - conda create -n (가상환경 이름)
-  - conda activate (생성한 가상환경 이름) 가상환경 실행
 - 프로젝트 클론
   - git clone https://github.com/wanted-team6/Freshcode.git . (현재 경로에 repository 복사)
-- 프로젝트에 필요한 package 설치
-  - pip install -r requirements.txt를 입력하여 package install 진행
-- 서버 실행
-  - python manage.py runserver
+- Local Server 실행
+  - `docker-compose -f docker/compose/local.yml up`
 - endpoint 호출 및 실행
-  - [Postman Document](https://documenter.getpostman.com/view/16042359/UVBzmpLX) 접속
+  - [Postman Document](https://documenter.getpostman.com/view/13670333/UVC2J9m2) 접속
   - api 및 endpoint 확인
   - 우측 상단의 Run in Postman 클릭
   - 원하는 자신의 workspace을 골라 api test 진행
+
+## 📁 폴더 구조
+```
+.
+├── Makefile
+├── README.md
+├── apps
+│   ├── __init__.py
+│   ├── config
+│   │   ├── __init__.py
+│   │   ├── common.py
+│   │   ├── local.py
+│   │   ├── production.py
+│   │   └── test.py
+│   ├── core
+│   │   ├── __init__.py
+│   │   ├── admin.py
+│   │   ├── apps.py
+│   │   ├── authentications.py
+│   │   ├── management
+│   │   ├── migrations
+│   │   └── serializers.py
+│   ├── products
+│   │   ├── __init__.py
+│   │   ├── admin.py
+│   │   ├── apps.py
+│   │   ├── migrations
+│   │   ├── models.py
+│   │   ├── serializers.py
+│   │   ├── tests.py
+│   │   ├── urls.py
+│   │   └── views.py
+│   ├── urls.py
+│   ├── users
+│   │   ├── __init__.py
+│   │   ├── admin.py
+│   │   ├── migrations
+│   │   ├── models.py
+│   │   ├── permissions.py
+│   │   ├── serializers.py
+│   │   ├── tests
+│   │   ├── urls.py
+│   │   └── views.py
+│   └── wsgi.py
+├── conftest.py
+├── docker
+│   ├── compose
+│   │   ├── local.yml
+│   │   └── prod.yml
+│   └── images
+│       ├── local
+│       └── prod
+├── docs
+│   ├── api
+│   │   ├── authentication.md
+│   │   └── users.md
+│   └── index.md
+├── manage.py
+├── mkdocs.yml
+├── poetry.lock
+├── pyproject.toml
+├── pytest.ini
+├── setup.cfg
+├── test
+│   ├── __init__.py
+│   ├── factories
+│   │   ├── __init__.py
+│   │   └── users.py
+│   └── schema
+│       ├── __init__.py
+│       └── users.py
+└── wait_for_postgres.py
+```
 
 # Reference
 이 프로젝트는 원티드x위코드 백엔드 프리온보딩 과제 일환으로 *프레시코드*에서 출제한 과제를 기반으로 만들었습니다.
