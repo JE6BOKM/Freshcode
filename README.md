@@ -14,7 +14,7 @@
 |신우주 |[shinwooju](https://github.com/shinwooju)     | 상품 CRUD   |
 |최혜림 |[rimi0108](https://github.com/rimi0108)     | 로그인   |
 |강성묵 |[miranaky](https://github.com/miranaky)     | 로그인   |
-|김민규 |[miranaky](https://github.com/SkyStar-K)     | 상품 CRUD  |
+|김민규 |[SkyStar-K](https://github.com/SkyStar-K)     | 상품 CRUD  |
 
 
 ## ⭐ 과제 내용
@@ -128,8 +128,10 @@
     - 로그인시 발급받은 token을 조회하여 permission을 구분 할 수 있게 하였습니다.
 
 - **products**
-  - ModelViewSet으로 Create, Read, Update, Delete를 사용할 수 있게 만들었습니다.
-  - permission을 생성하여 admin은 CRUD, user는 Read만 사용할 수 있게 만들었습니다.
+  - admin role 인 사람은 상품을 생성,수정,삭제 할 수 있습니다.
+    - ModelViewSet으로 Create, Read, Update, Delete를 사용할 수 있게 만들었습니다.
+    - 상품 생성시 메뉴,아이템,테그를 동시에 생성 할 수 있습니다.
+    - permission을 생성하여 admin은 CRUD, user는 Read만 사용할 수 있게 만들었습니다.
 
 ## 📎 Postman Document
 [Postman Document](https://documenter.getpostman.com/view/13670333/UVC2J9m2)
