@@ -11,11 +11,11 @@ from rest_framework.authtoken.models import Token
 
 class Role(models.TextChoices):
     ADMIN = "Admin"
-    USER  = "User"
+    USER = "User"
 
 
 class User(AbstractUser):
-    id   = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     role = models.CharField(choices=Role.choices, default=Role.USER, max_length=16)
 
     def __str__(self):

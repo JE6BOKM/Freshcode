@@ -20,7 +20,9 @@ class IsAdmin(permissions.BasePermission):
     """
     Only allowed to admin
     """
+
     message = "ADMIN ONLY ALLOWED"
+
     def has_permission(self, request, view):
         if request.user.is_authenticated:
             if request.user.role == Role.ADMIN:

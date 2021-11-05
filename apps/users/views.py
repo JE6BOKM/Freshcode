@@ -3,9 +3,9 @@ from rest_framework.permissions import AllowAny, IsAuthenticatedOrReadOnly
 
 from apps.core.serializers import ChooseSerializerClassMixin
 
-from .models       import User
-from .serializers  import CreateUserSerializer, UserSerializer
-from .permissions  import IsAdmin
+from .models import User
+from .serializers import CreateUserSerializer, UserSerializer
+from .permissions import IsAdmin
 
 
 class UserViewSet(viewsets.ModelViewSet):
